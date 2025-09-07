@@ -7,4 +7,4 @@ Disallow: /*?*
 Disallow: /*#*
 
 # IMPORTANT: بدّل DOMAIN بنطاقك الحقيقي بعد النشر
-Sitemap: https://invoxme.com//sitemap.xml
+Sitemap: https://invoxme.com/sitemap.xml
