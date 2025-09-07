@@ -1,10 +1,4 @@
-# robots.txt for Invoxi
 User-agent: *
 Allow: /
 
-# Optional: منع صفحات وهمية أو روابط باراميترية (عدّل حسب حاجتك)
-Disallow: /*?*
-Disallow: /*#*
-
-# IMPORTANT: بدّل DOMAIN بنطاقك الحقيقي بعد النشر
 Sitemap: https://invoxme.com/sitemap.xml
