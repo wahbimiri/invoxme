@@ -1,0 +1,69 @@
+# =========================
+# InvoxMe — Flutter Web
+# Keep build/web (for Vercel), ignore all other build artifacts
+# =========================
+
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# IDEs
+# IntelliJ / Android Studio
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# VS Code (keep settings if you want them versioned)
+# .vscode/
+
+# Flutter / Dart / Pub
+.dart_tool/
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+.flutter-versions
+.pub-cache/
+.pub/
+**/doc/api/
+**/ios/Flutter/.last_build_id
+
+# Android signing (never commit your keys)
+android/app/**/keystore.properties
+android/app/**/key.jks
+
+# Desktop ephemeral
+linux/flutter/ephemeral/
+macos/Flutter/ephemeral/
+windows/flutter/ephemeral/
+
+# ---------- Build outputs ----------
+# ignore everything under build/ ...
+build/**
+# ...but keep the web bundle (for static deploy on Vercel/GitHub Pages/etc.)
+!build/web/
+!build/web/**
+
+# Symbolication / Obfuscation
+app.*.symbols
+app.*.map.json
+
+# Android Studio profiles
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# OS crumbs
+Thumbs.db
+.Spotlight-V100
+.Trashes

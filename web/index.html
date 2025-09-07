@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- =============== SEO begin =============== -->
+  <title>Invoxi — Simple Invoice Generator (Web)</title>
+  <meta name="description" content="Create professional invoices in seconds. Free, fast, printable PDF. Optional logo, taxes, discount, delivery, CSV import/export, and signature." />
+  <link rel="canonical" href="https://invoxme.com/" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0f172a" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://invoxme.com/" />
+  <meta property="og:title" content="Invoxi — Simple Invoice Generator (Web)" />
+  <meta property="og:description" content="Make and print invoices as PDF. VAT, discount, delivery, CSV, signature. Free and fast." />
+  <meta property="og:image" content="https://invoxme.com/og-cover.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Invoxi — Simple Invoice Generator (Web)" />
+  <meta name="twitter:description" content="Make and print invoices as PDF. VAT, discount, delivery, CSV, signature." />
+  <meta name="twitter:image" content="https://invoxme.com/og-cover.png" />
+
+  <!-- AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-7843892285663735" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7843892285663735" crossorigin="anonymous"></script>
+
+  <!-- Google Search Console (optional) -->
+  <!-- <meta name="google-site-verification" content="PUT_YOUR_VERIFY_CODE_HERE" /> -->
+
+  <!-- JSON-LD: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Invoxi",
+    "url": "https://invoxme.com/",
+    "logo": "https://invoxme.com/icons/Icon-192.png",
+    "sameAs": []
+  }
+  </script>
+
+  <!-- JSON-LD: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Invoxi",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "url": "https://invoxme.com/",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <!-- =============== SEO end =============== -->
+
+  <!-- PWA / icons -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="icons/Icon-192.png" />
+</head>
+<body>
+  <noscript>
+    <div style="padding:16px; max-width:720px; margin:24px auto; font-family:system-ui, sans-serif; line-height:1.5;">
+      <h1>Invoxi — Simple Invoice Generator (Web)</h1>
+      <p>This app needs JavaScript enabled. With Invoxi you can create and print invoices as PDF, add logo, taxes, discount, delivery, import/export CSV, and sign.</p>
+    </div>
+  </noscript>
+
+  <!-- Flutter loader -->
+  <script>const serviceWorkerVersion = null;</script>
+  <script src="flutter.js" defer></script>
+  <script>
+    window.addEventListener('load', function () {
+      _flutter.loader.loadEntrypoint({ serviceWorker: { serviceWorkerVersion } })
+        .then(e => e.initializeEngine())
+        .then(app => app.runApp());
+    });
+  </script>
+</body>
+</html>
