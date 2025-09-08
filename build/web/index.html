@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) - GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-15LVK5HL4T"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+
+  // init
+  gtag('js', new Date());
+
+  // basic config
+  gtag('config', 'G-15LVK5HL4T', {
+    anonymize_ip: true,    // privacy
+    cookie_domain: 'auto', // يخدم على invoxme.com و www.invoxme.com
+    send_page_view: true   // page_view تلقائي
+  });
+</script>
   <base href="/" />
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
@@ -115,7 +131,7 @@
   </noscript>
 
   <!-- Flutter loader -->
-  <script>const serviceWorkerVersion = "4100705513";</script>
+  <script>const serviceWorkerVersion = "2468543102";</script>
   <script src="flutter.js" defer></script>
   <script>
     window.addEventListener('load', function () {
