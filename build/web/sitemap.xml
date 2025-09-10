@@ -3,44 +3,38 @@
   <url>
     <loc>https://invoxme.com/</loc>
     <lastmod>2025-09-09</lastmod>
-    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://invoxme.com/about.html</loc>
+    <lastmod>2025-09-09</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://invoxme.com/faq.html</loc>
+    <lastmod>2025-09-09</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://invoxme.com/how-it-works.html</loc>
+    <lastmod>2025-09-09</lastmod>
+    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://invoxme.com/privacy.html</loc>
     <lastmod>2025-09-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://invoxme.com/terms.html</loc>
     <lastmod>2025-09-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://invoxme.com/contact.html</loc>
     <lastmod>2025-09-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.6</priority>
   </url>
-  <url>
-  <loc>https://invoxme.com/about.html</loc>
-  <lastmod>2025-09-09</lastmod>
-  <changefreq>yearly</changefreq>
-  <priority>0.6</priority>
-</url>
-<url>
-  <loc>https://invoxme.com/faq.html</loc>
-  <lastmod>2025-09-09</lastmod>
-  <changefreq>yearly</changefreq>
-  <priority>0.6</priority>
-</url>
-<url>
-  <loc>https://invoxme.com/how-it-works.html</loc>
-  <lastmod>2025-09-09</lastmod>
-  <changefreq>yearly</changefreq>
-  <priority>0.6</priority>
-</url>
 </urlset>
