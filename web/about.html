@@ -2,88 +2,81 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>About — Invoxi</title>
+  <title>About Invoxi — Simple Invoice Generator</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Invoxi is a fast, free web app to create professional invoices as PDF. Optional logo, taxes, discount, delivery, CSV import/export, and signature." />
-  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
-
-  <!-- Canonical -->
+  <meta name="description"
+        content="Learn about Invoxi: a fast, free web invoice generator. Why we built it, who it’s for, how we keep your data private, and what’s coming next." />
+  <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://invoxme.com/about.html" />
+  <meta name="theme-color" content="#0f172a" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Invoxi" />
-  <meta property="og:title" content="About — Invoxi" />
-  <meta property="og:description" content="Learn what Invoxi does and why it's the simplest way to generate invoices as PDF in seconds." />
   <meta property="og:url" content="https://invoxme.com/about.html" />
+  <meta property="og:title" content="About Invoxi — Simple Invoice Generator" />
+  <meta property="og:description" content="What Invoxi does, who it’s for, and how we protect your privacy." />
   <meta property="og:image" content="https://invoxme.com/og-cover.png" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="About — Invoxi" />
-  <meta name="twitter:description" content="Learn what Invoxi does and why it's the simplest way to generate invoices as PDF in seconds." />
+  <meta name="twitter:title" content="About Invoxi — Simple Invoice Generator" />
+  <meta name="twitter:description" content="Why we built Invoxi, key features, and our roadmap." />
   <meta name="twitter:image" content="https://invoxme.com/og-cover.png" />
 
-  <meta name="theme-color" content="#0f172a" />
-
   <style>
-    :root { color-scheme: light dark; --bg:#0b0f1a; --card:#0f172a; --txt:#e5e7eb; --muted:#94a3b8; --link:#60a5fa; }
-    * { box-sizing: border-box; }
-    html,body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif; }
-    body { background: var(--bg); color: var(--txt); }
-    .wrap { max-width: 860px; margin: 0 auto; padding: 32px 16px 80px; }
-    a { color: var(--link); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    h1 { font-size: 28px; margin: 0 0 6px; }
-    h2 { font-size: 20px; margin: 22px 0 8px; }
-    p  { line-height: 1.7; margin: 12px 0; }
-    .muted { color: var(--muted); font-size: 14px; }
-    .card { background: var(--card); border: 1px solid rgba(148,163,184,.15); border-radius: 14px; padding: 20px; }
-    ul { margin: 8px 0 8px 18px; line-height: 1.75; }
-    .cta { display:inline-block; margin-top: 14px; background:#2563eb; color:#fff; padding:12px 16px; border-radius:12px; font-weight:600; }
-    footer { margin-top: 28px; font-size: 14px; color: var(--muted); display:flex; gap:12px; flex-wrap:wrap; }
-    footer a { color: var(--muted); }
-    @media (prefers-color-scheme: light) {
-      :root { --bg:#f6f8fb; --card:#ffffff; --txt:#0f172a; --muted:#475569; --link:#2563eb; }
-      .card { border-color: rgba(15,23,42,.08); }
+    :root { color-scheme: light dark; }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;
+      line-height:1.65;
+      background:#0b0f1a;
+      color:#e5e7eb;
+    }
+    .wrap{max-width:920px;margin:0 auto;padding:28px 16px}
+    header h1{font-size:28px;margin:0 0 6px}
+    header p{margin:0;color:#94a3b8}
+    h2{font-size:22px;margin:24px 0 10px}
+    h3{font-size:18px;margin:18px 0 8px}
+    p{margin:10px 0}
+    ul{margin:8px 0 16px 18px}
+    a{color:#60a5fa;text-decoration:none}
+    a:hover{text-decoration:underline}
+    .card{
+      background:#0f172a;border:1px solid rgba(148,163,184,.15);
+      border-radius:14px;padding:18px;margin:16px 0;
+    }
+    .grid{display:grid;gap:14px}
+    @media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}
+    footer{margin-top:28px;color:#94a3b8;font-size:14px}
+    nav.links{display:flex;gap:12px;flex-wrap:wrap}
+    nav.links a{color:#94a3b8}
+    @media(prefers-color-scheme:light){
+      body{background:#f6f8fb;color:#0f172a}
+      .card{background:#fff;border-color:rgba(15,23,42,.08)}
+      header p,footer{color:#475569}
+      nav.links a{color:#475569}
     }
   </style>
 
-  <!-- JSON-LD: AboutPage + Organization + Breadcrumbs -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebSite",
-        "name": "Invoxi",
-        "url": "https://invoxme.com/"
-      },
-      {
         "@type": "Organization",
         "name": "Invoxi",
         "url": "https://invoxme.com/",
         "logo": "https://invoxme.com/icons/Icon-192.png",
-        "contactPoint": [{
-          "@type": "ContactPoint",
-          "contactType": "customer support",
-          "email": "hireready.store@proton.me",
-          "availableLanguage": ["en","de"]
-        }]
+        "email": "hireready.store@proton.me",
+        "sameAs": []
       },
       {
         "@type": "AboutPage",
-        "name": "About — Invoxi",
+        "name": "About Invoxi",
         "url": "https://invoxme.com/about.html",
         "isPartOf": { "@id": "https://invoxme.com/" }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [{
-          "@type": "ListItem","position": 1,"name": "Home","item": "https://invoxme.com/"
-        },{
-          "@type": "ListItem","position": 2,"name": "About","item": "https://invoxme.com/about.html"
-        }]
       }
     ]
   }
@@ -93,45 +86,75 @@
   <div class="wrap">
     <header>
       <h1>About Invoxi</h1>
-      <div class="muted">Simple Invoice Generator — fast, free, privacy-friendly.</div>
+      <p>Fast, free invoice generator for freelancers, small teams, and side projects.</p>
     </header>
 
     <section class="card">
       <h2>What is Invoxi?</h2>
-      <p>Invoxi is a lightweight web app to create professional invoices in seconds and export them as PDF. No signup required, and your data stays in your browser.</p>
-
-      <h2>Main features</h2>
-      <ul>
-        <li>PDF export that looks great on print</li>
-        <li>Optional logo, taxes (VAT), discount & delivery</li>
-        <li>CSV import / export</li>
-        <li>Signature field</li>
-        <li>Multi-language UI (e.g. EN/DE)</li>
-      </ul>
-
-      <a class="cta" href="/">Start New Invoice</a>
+      <p>
+        Invoxi is a lightweight web app that helps you create professional invoices in minutes.
+        No sign-up required, no heavy software. You fill your client details, items, taxes or
+        discounts, and export a clean PDF that’s ready to send.
+      </p>
     </section>
 
-    <section class="card" style="margin-top:16px">
-      <h2>Why Invoxi?</h2>
+    <section class="grid">
+      <div class="card">
+        <h3>Who is it for?</h3>
+        <ul>
+          <li>Freelancers and consultants who need quick, polished PDFs.</li>
+          <li>Small businesses that don’t want complex accounting tools.</li>
+          <li>Side projects and startups that need a simple invoicing flow.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Key features</h3>
+        <ul>
+          <li>Logo, client &amp; sender details, currency, due dates.</li>
+          <li>Tax, discount, delivery/shipping line, notes &amp; signatures.</li>
+          <li>Import/export items as CSV; duplicate invoices.</li>
+          <li>Fast PDF export that prints beautifully.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Privacy & data</h2>
+      <p>
+        Invoxi runs in your browser. We don’t sell your data. Basic analytics may be used to
+        improve the product (aggregate usage only). For full details, see our
+        <a href="/privacy.html">Privacy</a> and <a href="/terms.html">Terms</a>.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Roadmap</h2>
       <ul>
-        <li><strong>Speed:</strong> create an invoice in under a minute</li>
-        <li><strong>Privacy:</strong> no server storage, everything stays on your device</li>
-        <li><strong>Free:</strong> use it without any subscription</li>
+        <li>Saved invoice templates and quick client lists.</li>
+        <li>Multiple languages & RTL layout improvements.</li>
+        <li>Optional cloud backup (opt-in, encrypted).</li>
       </ul>
+      <p>Have a suggestion? <a href="/contact.html">Tell us</a>.</p>
+    </section>
+
+    <section class="card">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:hireready.store@proton.me">hireready.store@proton.me</a></p>
+      <p>Support hours: Mon–Fri, 9:00–17:00 (CET). We usually reply within 1–2 business days.</p>
     </section>
 
     <footer>
-      <span>© <span id="y"></span> Invoxi</span> ·
-      <a href="/">Home</a> ·
-      <a href="/how-it-works.html">How it works</a> ·
-      <a href="/faq.html">FAQ</a> ·
-      <a href="/terms.html">Terms</a> ·
-      <a href="/privacy.html">Privacy</a> ·
-      <a href="/contact.html">Contact</a>
+      <nav class="links" aria-label="Footer">
+        <a href="/">Home</a> ·
+        <a href="/how-it-works.html">How it works</a> ·
+        <a href="/faq.html">FAQ</a> ·
+        <a href="/privacy.html">Privacy</a> ·
+        <a href="/terms.html">Terms</a> ·
+        <a href="/contact.html">Contact</a>
+      </nav>
+      <div style="margin-top:8px">© <span id="y"></span> Invoxi</div>
     </footer>
   </div>
-
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
