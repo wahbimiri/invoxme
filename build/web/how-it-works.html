@@ -2,67 +2,64 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>How it works — Invoxi</title>
+  <title>How Invoxi Works — Create an invoice in minutes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="See how Invoxi works in 6 quick steps: add your details, insert items, apply tax/discount, brand with your logo, sign, and export a clean PDF." />
-  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
-
-  <!-- Canonical -->
+  <meta name="description" content="See how to create a professional invoice with Invoxi in a few simple steps: add your business info, items, taxes, discounts, and export a printable PDF." />
+  <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://invoxme.com/how-it-works.html" />
-
-  <!-- OG / Twitter -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Invoxi" />
-  <meta property="og:title" content="How it works — Invoxi" />
-  <meta property="og:description" content="Create and export invoices as PDF in minutes. Simple 6-step guide." />
-  <meta property="og:url" content="https://invoxme.com/how-it-works.html" />
-  <meta property="og:image" content="https://invoxme.com/og-cover.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="How it works — Invoxi" />
-  <meta name="twitter:description" content="Create professional invoices fast with Invoxi. Step-by-step walkthrough." />
-  <meta name="twitter:image" content="https://invoxme.com/og-cover.png" />
-
   <meta name="theme-color" content="#0f172a" />
 
   <style>
-    :root { color-scheme: light dark; --bg:#0b0f1a; --card:#0f172a; --txt:#e5e7eb; --muted:#94a3b8; --link:#60a5fa; --border:rgba(148,163,184,.15); --ok:#22c55e;}
-    *{ box-sizing:border-box }
-    html,body{ margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif }
-    body{ background:var(--bg); color:var(--txt) }
-    .wrap{ max-width:860px; margin:0 auto; padding:32px 16px 80px }
-    h1{ font-size:28px; margin:0 0 6px }
-    .muted{ color:var(--muted); font-size:14px }
-    .steps{ margin-top:16px; display:grid; gap:14px }
-    .step{ background:var(--card); border:1px solid var(--border); border-radius:14px; padding:18px 20px; line-height:1.75 }
-    .n{ display:inline-flex; width:28px; height:28px; align-items:center; justify-content:center; border-radius:999px; background:var(--ok); color:#fff; font-weight:700; margin-right:10px }
-    .title{ font-weight:700; font-size:16px; margin:0 0 4px; display:flex; align-items:center }
-    .body{ margin:0 }
-    .tips{ margin-top:18px; background:var(--card); border:1px solid var(--border); border-radius:14px; padding:18px 20px }
-    .tips h2{ margin:0 0 8px; font-size:18px }
-    a{ color:var(--link); text-decoration:none }
-    a:hover{ text-decoration:underline }
-    footer{ margin-top:28px; font-size:14px; color:var(--muted); display:flex; gap:12px; flex-wrap:wrap }
-    footer a{ color:var(--muted) }
-    @media (prefers-color-scheme: light){
-      :root{ --bg:#f6f8fb; --card:#fff; --txt:#0f172a; --muted:#475569; --link:#2563eb; --border:rgba(15,23,42,.08) }
+    :root{color-scheme:light dark}
+    html,body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#0b0f1a;color:#e5e7eb}
+    .wrap{max-width:900px;margin:0 auto;padding:32px 16px}
+    header h1{margin:0 0 6px;font-size:32px}
+    header p{margin:0;color:#94a3b8}
+    h2{font-size:22px;margin:28px 0 12px}
+    p{line-height:1.65;margin:10px 0}
+    .card{background:#0f172a;border:1px solid rgba(148,163,184,.18);border-radius:14px;padding:18px;margin:14px 0}
+    .steps{counter-reset:step;display:grid;gap:12px}
+    .step{position:relative;padding-left:48px}
+    .step:before{
+      counter-increment:step;content:counter(step);
+      position:absolute;left:0;top:.15rem;width:28px;height:28px;border-radius:9px;
+      background:#2563eb;color:#fff;display:grid;place-items:center;font-weight:700
+    }
+    a{color:#60a5fa;text-decoration:none}
+    a:hover{text-decoration:underline}
+    iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px}
+    .muted{color:#94a3b8}
+    .faq details{background:#0f172a;border:1px solid rgba(148,163,184,.18);border-radius:12px;padding:12px;margin:10px 0}
+    .faq summary{cursor:pointer;font-weight:600}
+    footer{margin-top:28px;color:#94a3b8;font-size:14px}
+    nav.links{display:flex;gap:12px;flex-wrap:wrap}
+    @media (prefers-color-scheme:light){
+      body{background:#f7f8fb;color:#0f172a}
+      .card,.faq details{background:#fff;border-color:rgba(15,23,42,.08)}
+      .muted{color:#475569}
     }
   </style>
 
-  <!-- JSON-LD: HowTo -->
+  <!-- JSON-LD: Breadcrumb + Article -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    "name": "How to create an invoice with Invoxi",
-    "description": "Six easy steps to make a professional invoice and export a PDF.",
-    "totalTime": "PT3M",
-    "step": [
-      { "@type":"HowToStep", "name":"Start a new invoice", "text":"Open invoxme.com and click 'Start New Invoice'. Your data stays in your browser." },
-      { "@type":"HowToStep", "name":"Add company & client details", "text":"Fill out your business info, client info, invoice number and dates." },
-      { "@type":"HowToStep", "name":"Insert line items", "text":"Add items or services with quantity and unit price. Use CSV import if you have many." },
-      { "@type":"HowToStep", "name":"Apply tax/discount/delivery", "text":"Enable VAT/Tax, discounts and delivery fees as needed; totals update automatically." },
-      { "@type":"HowToStep", "name":"Brand and sign", "text":"Upload your logo and add a signature (draw or upload) to finalize the invoice." },
-      { "@type":"HowToStep", "name":"Export PDF & save CSV", "text":"Click Download to get a print-ready PDF. Save CSV to reuse items later." }
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://invoxme.com/"},
+          {"@type":"ListItem","position":2,"name":"How it works","item":"https://invoxme.com/how-it-works.html"}
+        ]
+      },
+      {
+        "@type":"Article",
+        "headline":"How Invoxi Works — Create an invoice in minutes",
+        "description":"Step-by-step guide to make a professional invoice with Invoxi and export a printable PDF.",
+        "author":{"@type":"Organization","name":"Invoxi"},
+        "publisher":{"@type":"Organization","name":"Invoxi","logo":{"@type":"ImageObject","url":"https://invoxme.com/icons/Icon-192.png"}},
+        "mainEntityOfPage":"https://invoxme.com/how-it-works.html"
+      }
     ]
   }
   </script>
@@ -70,58 +67,90 @@
 <body>
   <div class="wrap">
     <header>
-      <h1>How it works</h1>
-      <div class="muted">Create a professional invoice in minutes — a simple 6-step flow.</div>
+      <h1>How Invoxi works</h1>
+      <p class="muted">Create a professional invoice in a few simple steps.</p>
     </header>
 
-    <section class="steps">
-      <article class="step">
-        <p class="title"><span class="n">1</span>Start a new invoice</p>
-        <p class="body">Go to <a href="/">invoxme.com</a> and click <strong>Start New Invoice</strong>. All data is processed in your browser (privacy-friendly).</p>
-      </article>
-      <article class="step">
-        <p class="title"><span class="n">2</span>Add company & client details</p>
-        <p class="body">Fill out your business details, client details, invoice number, due date and payment notes.</p>
-      </article>
-      <article class="step">
-        <p class="title"><span class="n">3</span>Insert line items</p>
-        <p class="body">Add products/services with quantity and unit price. Use <strong>CSV import</strong> to load many items at once; totals update live.</p>
-      </article>
-      <article class="step">
-        <p class="title"><span class="n">4</span>Tax / Discount / Delivery</p>
-        <p class="body">Enable VAT/Tax, discounts and delivery charges per invoice. Everything is calculated automatically.</p>
-      </article>
-      <article class="step">
-        <p class="title"><span class="n">5</span>Brand & sign</p>
-        <p class="body">Upload your logo to brand the header. Add a digital signature by drawing or uploading an image.</p>
-      </article>
-      <article class="step">
-        <p class="title"><span class="n">6</span>Export PDF & save CSV</p>
-        <p class="body">Download a clean, print-ready <strong>PDF</strong>. Save your <strong>CSV</strong> to reuse items and continue later.</p>
-      </article>
-    </section>
+    <!-- (اختياري) فيديو توضيحي -->
+    <div class="card" aria-label="How it works video">
+      <iframe
+        src="https://www.youtube.com/embed/VIDEO_ID"
+        title="How Invoxi works"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+      <p class="muted" style="margin-top:8px">Tip: replace <code>VIDEO_ID</code> with your YouTube video id (optional).</p>
+    </div>
 
-    <section class="tips">
-      <h2>Tips</h2>
+    <h2>Quick start</h2>
+    <div class="steps">
+      <div class="step card">
+        <strong>Open Invoxi</strong>
+        <p>Go to <a href="/">invoxme.com</a> and click <em>Start New Invoice</em>.</p>
+      </div>
+      <div class="step card">
+        <strong>Add business & client info</strong>
+        <p>Fill your company details (name, address, tax ID) and the client’s info. These fields appear at the top of the PDF.</p>
+      </div>
+      <div class="step card">
+        <strong>Insert line items</strong>
+        <p>Add products or services with quantity and price. You can reorder or remove items at any time.</p>
+      </div>
+      <div class="step card">
+        <strong>Taxes, discount & delivery</strong>
+        <p>Enable VAT or sales tax, add a discount (fixed or %), and delivery/shipping if needed. Totals update instantly.</p>
+      </div>
+      <div class="step card">
+        <strong>Optional logo & signature</strong>
+        <p>Upload your logo to brand the invoice and add a signature area to sign before sending.</p>
+      </div>
+      <div class="step card">
+        <strong>Export the PDF</strong>
+        <p>Click <em>Export</em> to generate a clean, printable PDF you can send to your client or archive for records.</p>
+      </div>
+    </div>
+
+    <h2>Tips for accurate invoices</h2>
+    <div class="card">
       <ul>
-        <li>Arabic / RTL content is supported — the PDF renders RTL correctly.</li>
-        <li>You can type any currency symbol/code; formatting follows your inputs.</li>
-        <li>Keep your CSV as a product catalog for faster invoices.</li>
-        <li>Need help? <a href="/faq.html">Check the FAQ</a> or <a href="/contact.html">contact us</a>.</li>
+        <li>Use consistent invoice numbering (e.g., INV-2025-001).</li>
+        <li>Always include issue date, due date, and payment terms.</li>
+        <li>Add notes for bank transfer, reference, or PO number if required.</li>
+        <li>Keep client and tax IDs accurate to avoid delays.</li>
       </ul>
-    </section>
+    </div>
+
+    <h2>FAQ</h2>
+    <div class="faq">
+      <details>
+        <summary>Is Invoxi free?</summary>
+        <p>Yes. You can create and export invoices as PDF for free.</p>
+      </details>
+      <details>
+        <summary>Can I add VAT or discounts?</summary>
+        <p>Yes. You can enable VAT/sales tax, and add fixed or percentage discounts per invoice.</p>
+      </details>
+      <details>
+        <summary>Where is my data stored?</summary>
+        <p>We don’t permanently store your invoice data. Read more in our <a href="/privacy.html">Privacy</a> page.</p>
+      </details>
+    </div>
 
     <footer>
-      <span>© <span id="y"></span> Invoxi</span> ·
-      <a href="/">Home</a> ·
-      <a href="/about.html">About</a> ·
-      <a href="/faq.html">FAQ</a> ·
-      <a href="/terms.html">Terms</a> ·
-      <a href="/privacy.html">Privacy</a> ·
-      <a href="/contact.html">Contact</a>
+      <nav class="links" aria-label="Helpful links">
+        <a href="/">Home</a> ·
+        <a href="/about.html">About</a> ·
+        <a href="/faq.html">FAQ</a> ·
+        <a href="/contact.html">Contact</a> ·
+        <a href="/terms.html">Terms</a> ·
+        <a href="/privacy.html">Privacy</a>
+      </nav>
+      <div style="margin-top:8px">© <span id="y"></span> Invoxi</div>
     </footer>
   </div>
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
