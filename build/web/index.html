@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) - GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-15LVK5HL4T"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){ dataLayer.push(arguments); }
+  <!-- Google tag (gtag.js) - GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-15LVK5HL4T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
 
-  // init
-  gtag('js', new Date());
+    // init
+    gtag('js', new Date());
 
-  // basic config
-  gtag('config', 'G-15LVK5HL4T', {
-    anonymize_ip: true,    // privacy
-    cookie_domain: 'auto', // يخدم على invoxme.com و www.invoxme.com
-    send_page_view: true   // page_view تلقائي
-  });
-</script>
+    // basic config
+    gtag('config', 'G-15LVK5HL4T', {
+      anonymize_ip: true,    // privacy
+      cookie_domain: 'auto', // يخدم على invoxme.com و www.invoxme.com
+      send_page_view: true   // page_view تلقائي
+    });
+  </script>
+
   <base href="/" />
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
@@ -78,8 +79,49 @@
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="apple-touch-icon" href="icons/Icon-192.png" />
 
-  <!-- tiny footer styles -->
+  <!-- Styles -->
   <style>
+    /* Floating legal footer */
+    #legal-footer{
+      position: fixed;
+      left: 50%;
+      bottom: 14px;
+      transform: translateX(-50%);
+      font: 14px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: rgba(255,255,255,.92);
+      color: #0f172a;
+      padding: 6px 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0,0,0,.12);
+      z-index: 2147483647; /* فوق كل شيء */
+    }
+    #legal-footer a{
+      color: inherit;
+      text-decoration: none;
+      margin: 0 .35rem;
+    }
+    #legal-footer a:hover{ text-decoration: underline; }
+    @media (prefers-color-scheme: dark){
+      #legal-footer{ background: rgba(17,24,39,.92); color: #e5e7eb; }
+      #legal-footer a{ color: #e5e7eb; }
+    }
+
+    /* Home SEO/content block */
+    .home-wrap{max-width:960px;margin:48px auto;padding:0 16px;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    .home-hero{margin:8px 0 24px}
+    .home-hero h1{font-size:28px;margin:0 0 8px;color:#0f172a}
+    .home-hero p{color:#475569;font-size:16px}
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:16px 0}
+    .feature{border:1px solid #e5e7eb;border-radius:12px;padding:14px;background:#fff}
+    .feature h3{margin:0 0 6px;font-size:16px;color:#0f172a}
+    .feature p{margin:0;color:#334155;font-size:14px;line-height:1.55}
+    @media (prefers-color-scheme: dark){
+      .feature{background:#0b1220;border-color:#1f2937}
+      .home-hero h1,.feature h3{color:#e5e7eb}
+      .home-hero p,.feature p{color:#94a3b8}
+    }
+
+    /* bottom footer */
     .footer-wrap{max-width:960px;margin:32px auto 24px;padding:0 16px;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif}
     .footer{font-size:12px;color:#6b7280;text-align:center}
     .footer a{color:#0ea5e9;text-decoration:none}
@@ -87,157 +129,58 @@
     .footer hr{border:0;border-top:1px solid #e5e7eb;margin:24px 0}
     .footer nav{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
   </style>
-  <!-- Floating legal footer (always visible above Flutter canvas) -->
-<style>
-  #legal-footer{
-    position: fixed;
-    left: 50%;
-    bottom: 14px;
-    transform: translateX(-50%);
-    font: 14px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    background: rgba(255,255,255,.92);
-    color: #0f172a;
-    padding: 6px 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 16px rgba(0,0,0,.12);
-    z-index: 2147483647; /* فوق كل شيء */
-  }
-  #legal-footer a{
-    color: inherit;
-    text-decoration: none;
-    margin: 0 .35rem;
-  }
-  #legal-footer a:hover{ text-decoration: underline; }
-  @media (prefers-color-scheme: dark){
-    #legal-footer{ background: rgba(17,24,39,.92); color: #e5e7eb; }
-    #legal-footer a{ color: #e5e7eb; }
-  }
-</style>
 
-<div id="legal-footer" role="contentinfo" aria-label="Legal links">
-  <a href="/privacy.html">Privacy</a> ·
-  <a href="/terms.html">Terms</a> ·
-  <a href="/contact.html">Contact</a>
-  <a href="/about.html">About</a>
-  <a href="/faq.html">FAQ</a> ·
-  <a href="/how-it-works.html">How it works</a>
-</div>
+  <!-- Optional: small FAQ schema to enrich the page -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Does Invoxi store my invoice data?",
+       "acceptedAnswer":{"@type":"Answer","text":"No. Everything runs locally in your browser; we don't store your data on our servers."}},
+      {"@type":"Question","name":"Can I export invoices as PDF?",
+       "acceptedAnswer":{"@type":"Answer","text":"Yes. A clean, print-ready PDF is generated with one click."}},
+      {"@type":"Question","name":"Does Invoxi support Arabic / RTL?",
+       "acceptedAnswer":{"@type":"Answer","text":"Yes, the UI supports RTL and Arabic content prints RTL in the PDF."}}
+    ]
+  }
+  </script>
 </head>
-<!-- Mini About card: visible content for users & AdSense -->
-<style>
-  .mini-about{
-    position: fixed;
-    left: 16px;
-    bottom: 72px; /* فوق الفوتر العائم بشوي */
-    max-width: 360px;
-    background: rgba(255,255,255,.95);
-    color: #0f172a;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0,0,0,.12);
-    z-index: 2147483646; /* أقل من الفوتر القانوني */
-    font: 14px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;
-  }
-  .mini-about header{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:10px 12px;font-weight:600;
-  }
-  .mini-about .content{padding:0 12px 12px;}
-  .mini-about button.close{
-    all:unset;cursor:pointer;font-size:18px;line-height:1;
-    padding:2px 6px;border-radius:8px;
-  }
-  .mini-about p{margin:0 0 6px}
-  .mini-about ul{margin:8px 0 0 18px;padding:0}
-  .mini-about a{color:#0ea5e9;text-decoration:none}
-  .mini-about a:hover{text-decoration:underline}
-
-  @media (max-width: 720px){
-    .mini-about{left:50%;transform:translateX(-50%);bottom:78px;width:calc(100% - 24px);}
-  }
-  @media (prefers-color-scheme: dark){
-    .mini-about{background: rgba(17,24,39,.95); color:#e5e7eb; border-color: rgba(148,163,184,.2);}
-    .mini-about a{color:#60a5fa}
-  }
-</style>
-
-<div class="mini-about" id="miniAbout" aria-label="About Invoxi">
-  <header>
-    <span>What is Invoxi?</span>
-    <button class="close" aria-label="Hide info" onclick="document.getElementById('miniAbout').style.display='none'">×</button>
-  </header>
-  <div class="content">
-    <p>Invoxi helps you create professional invoices in minutes. No signup, no tracking — everything runs in your browser (privacy-friendly).</p>
-    <ul>
-      <li>Logo, client & sender details</li>
-      <li>Tax/discount/delivery, notes & signature</li>
-      <li>CSV import & export for items</li>
-      <li>Arabic/RTL & multi-currency support</li>
-      <li>One-click PDF export</li>
-    </ul>
-    <p style="margin-top:8px">
-      <a href="/how-it-works.html">How it works</a> ·
-      <a href="/faq.html">FAQ</a> ·
-      <a href="/about.html">About</a>
-    </p>
-  </div>
-</div>
-<!-- ====== Home SEO/Content block (crawlable) ====== -->
-<style>
-  .home-wrap{max-width:960px;margin:48px auto;padding:0 16px;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-  .home-hero{margin:8px 0 24px}
-  .home-hero h1{font-size:28px;margin:0 0 8px;color:#0f172a}
-  .home-hero p{color:#475569;font-size:16px}
-  .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:16px 0}
-  .feature{border:1px solid #e5e7eb;border-radius:12px;padding:14px;background:#fff}
-  .feature h3{margin:0 0 6px;font-size:16px;color:#0f172a}
-  .feature p{margin:0;color:#334155;font-size:14px;line-height:1.55}
-  @media (prefers-color-scheme: dark){
-    .feature{background:#0b1220;border-color:#1f2937}
-    .home-hero h1,.feature h3{color:#e5e7eb}
-    .home-hero p,.feature p{color:#94a3b8}
-  }
-</style>
-
-<section class="home-wrap" aria-labelledby="h1">
-  <div class="home-hero">
-    <h1 id="h1">Free, privacy-friendly invoice generator for freelancers & small teams</h1>
-    <p>Create and download clean PDF invoices in minutes — no sign-up, no tracking; everything runs locally in your browser.</p>
-  </div>
-
-  <div class="features">
-    <div class="feature"><h3>Fast PDF</h3><p>One-click, print-ready PDFs that look great on paper and email.</p></div>
-    <div class="feature"><h3>Logo & branding</h3><p>Upload your logo and brand the header to keep invoices on-brand.</p></div>
-    <div class="feature"><h3>VAT/Tax, discount & delivery</h3><p>Enable VAT/Tax per item, set discounts and delivery charges — totals are automatic.</p></div>
-    <div class="feature"><h3>CSV import/export</h3><p>Bulk add line items from a CSV and re-export your catalog to reuse later.</p></div>
-    <div class="feature"><h3>Arabic / RTL</h3><p>Full right-to-left support; numbers & currency formatting follow your inputs.</p></div>
-    <div class="feature"><h3>Digital signatures</h3><p>Draw or upload a signature that will be embedded in the PDF.</p></div>
-  </div>
-
-  <p>
-    New here? Read the <a href="/how-it-works.html">How it works</a>, check the <a href="/faq.html">FAQ</a>, or learn more
-    <a href="/about.html">About Invoxi</a>. Need help? <a href="/contact.html">Contact us</a>.
-  </p>
-</section>
-
-<!-- Optional: small FAQ schema to enrich the page -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"FAQPage",
-  "mainEntity":[
-    {"@type":"Question","name":"Does Invoxi store my invoice data?",
-     "acceptedAnswer":{"@type":"Answer","text":"No. Everything runs locally in your browser; we don't store your data on our servers."}},
-    {"@type":"Question","name":"Can I export invoices as PDF?",
-     "acceptedAnswer":{"@type":"Answer","text":"Yes. A clean, print-ready PDF is generated with one click."}},
-    {"@type":"Question","name":"Does Invoxi support Arabic / RTL?",
-     "acceptedAnswer":{"@type":"Answer","text":"Yes, the UI supports RTL and Arabic content prints RTL in the PDF."}}
-  ]
-}
-</script>
-<!-- ====== /Home SEO block ====== -->
 
 <body>
+  <!-- Floating legal footer (always visible above Flutter canvas) -->
+  <div id="legal-footer" role="contentinfo" aria-label="Legal links">
+    <a href="/privacy.html">Privacy</a> ·
+    <a href="/terms.html">Terms</a> ·
+    <a href="/contact.html">Contact</a>
+    <a href="/about.html">About</a>
+    <a href="/faq.html">FAQ</a> ·
+    <a href="/how-it-works.html">How it works</a>
+  </div>
+
+  <!-- Home SEO/Content block (crawlable) -->
+  <section class="home-wrap" aria-labelledby="h1">
+    <div class="home-hero">
+      <h1 id="h1">Free, privacy-friendly invoice generator for freelancers & small teams</h1>
+      <p>Create and download clean PDF invoices in minutes — no sign-up, no tracking; everything runs locally in your browser.</p>
+    </div>
+
+    <div class="features">
+      <div class="feature"><h3>Fast PDF</h3><p>One-click, print-ready PDFs that look great on paper and email.</p></div>
+      <div class="feature"><h3>Logo & branding</h3><p>Upload your logo and brand the header to keep invoices on-brand.</p></div>
+      <div class="feature"><h3>VAT/Tax, discount & delivery</h3><p>Enable VAT/Tax per item, set discounts and delivery charges — totals are automatic.</p></div>
+      <div class="feature"><h3>CSV import/export</h3><p>Bulk add line items from a CSV and re-export your catalog to reuse later.</p></div>
+      <div class="feature"><h3>Arabic / RTL</h3><p>Full right-to-left support; numbers & currency formatting follow your inputs.</p></div>
+      <div class="feature"><h3>Digital signatures</h3><p>Draw or upload a signature that will be embedded in the PDF.</p></div>
+    </div>
+
+    <p>
+      New here? Read the <a href="/how-it-works.html">How it works</a>, check the <a href="/faq.html">FAQ</a>, or learn more
+      <a href="/about.html">About Invoxi</a>. Need help? <a href="/contact.html">Contact us</a>.
+    </p>
+  </section>
+
+  <!-- No-JS message -->
   <noscript>
     <div style="padding:16px; max-width:720px; margin:24px auto; font-family:system-ui, sans-serif; line-height:1.5;">
       <h1>Invoxi — Simple Invoice Generator (Web)</h1>
@@ -246,7 +189,7 @@
   </noscript>
 
   <!-- Flutter loader -->
-  <script>const serviceWorkerVersion = "874460258";</script>
+  <script>const serviceWorkerVersion = "1959090753";</script>
   <script src="flutter.js" defer></script>
   <script>
     window.addEventListener('load', function () {
@@ -256,7 +199,7 @@
     });
   </script>
 
-  <!-- ====== Minimal Footer with static pages ====== -->
+  <!-- Bottom footer -->
   <div class="footer-wrap">
     <div class="footer">
       <hr/>
@@ -271,6 +214,5 @@
     </div>
   </div>
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
-  <!-- ============================================ -->
 </body>
 </html>
