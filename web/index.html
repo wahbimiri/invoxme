@@ -182,6 +182,61 @@
     </p>
   </div>
 </div>
+<!-- ====== Home SEO/Content block (crawlable) ====== -->
+<style>
+  .home-wrap{max-width:960px;margin:48px auto;padding:0 16px;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+  .home-hero{margin:8px 0 24px}
+  .home-hero h1{font-size:28px;margin:0 0 8px;color:#0f172a}
+  .home-hero p{color:#475569;font-size:16px}
+  .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:16px 0}
+  .feature{border:1px solid #e5e7eb;border-radius:12px;padding:14px;background:#fff}
+  .feature h3{margin:0 0 6px;font-size:16px;color:#0f172a}
+  .feature p{margin:0;color:#334155;font-size:14px;line-height:1.55}
+  @media (prefers-color-scheme: dark){
+    .feature{background:#0b1220;border-color:#1f2937}
+    .home-hero h1,.feature h3{color:#e5e7eb}
+    .home-hero p,.feature p{color:#94a3b8}
+  }
+</style>
+
+<section class="home-wrap" aria-labelledby="h1">
+  <div class="home-hero">
+    <h1 id="h1">Free, privacy-friendly invoice generator for freelancers & small teams</h1>
+    <p>Create and download clean PDF invoices in minutes — no sign-up, no tracking; everything runs locally in your browser.</p>
+  </div>
+
+  <div class="features">
+    <div class="feature"><h3>Fast PDF</h3><p>One-click, print-ready PDFs that look great on paper and email.</p></div>
+    <div class="feature"><h3>Logo & branding</h3><p>Upload your logo and brand the header to keep invoices on-brand.</p></div>
+    <div class="feature"><h3>VAT/Tax, discount & delivery</h3><p>Enable VAT/Tax per item, set discounts and delivery charges — totals are automatic.</p></div>
+    <div class="feature"><h3>CSV import/export</h3><p>Bulk add line items from a CSV and re-export your catalog to reuse later.</p></div>
+    <div class="feature"><h3>Arabic / RTL</h3><p>Full right-to-left support; numbers & currency formatting follow your inputs.</p></div>
+    <div class="feature"><h3>Digital signatures</h3><p>Draw or upload a signature that will be embedded in the PDF.</p></div>
+  </div>
+
+  <p>
+    New here? Read the <a href="/how-it-works.html">How it works</a>, check the <a href="/faq.html">FAQ</a>, or learn more
+    <a href="/about.html">About Invoxi</a>. Need help? <a href="/contact.html">Contact us</a>.
+  </p>
+</section>
+
+<!-- Optional: small FAQ schema to enrich the page -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Does Invoxi store my invoice data?",
+     "acceptedAnswer":{"@type":"Answer","text":"No. Everything runs locally in your browser; we don't store your data on our servers."}},
+    {"@type":"Question","name":"Can I export invoices as PDF?",
+     "acceptedAnswer":{"@type":"Answer","text":"Yes. A clean, print-ready PDF is generated with one click."}},
+    {"@type":"Question","name":"Does Invoxi support Arabic / RTL?",
+     "acceptedAnswer":{"@type":"Answer","text":"Yes, the UI supports RTL and Arabic content prints RTL in the PDF."}}
+  ]
+}
+</script>
+<!-- ====== /Home SEO block ====== -->
+
 <body>
   <noscript>
     <div style="padding:16px; max-width:720px; margin:24px auto; font-family:system-ui, sans-serif; line-height:1.5;">
