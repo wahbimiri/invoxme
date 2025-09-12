@@ -6,15 +6,11 @@
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
-
-    // init
     gtag('js', new Date());
-
-    // basic config
     gtag('config', 'G-15LVK5HL4T', {
-      anonymize_ip: true,    // privacy
-      cookie_domain: 'auto', // يخدم على invoxme.com و www.invoxme.com
-      send_page_view: true   // page_view تلقائي
+      anonymize_ip: true,
+      cookie_domain: 'auto',
+      send_page_view: true
     });
   </script>
 
@@ -25,7 +21,7 @@
 
   <!-- =============== SEO begin =============== -->
   <title>Invoxi — Simple Invoice Generator (Web)</title>
-  <meta name="description" content="Create professional invoices in seconds. Free, fast, printable PDF. Optional logo, taxes, discount, delivery, CSV import/export, and signature." />
+  <meta name="description" content="Create professional invoices in minutes. Free, fast, printable PDF. No sign-up, no tracking. Optional logo, VAT/tax, discount, delivery, CSV import/export, and digital signatures. Available in English and German." />
   <link rel="canonical" href="https://invoxme.com/" />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#0f172a" />
@@ -34,19 +30,16 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://invoxme.com/" />
   <meta property="og:title" content="Invoxi — Simple Invoice Generator (Web)" />
-  <meta property="og:description" content="Make and print invoices as PDF. VAT, discount, delivery, CSV, signature. Free and fast." />
+  <meta property="og:description" content="Make and print invoice PDFs. No sign-up, no tracking. VAT/tax, discount, delivery, CSV import/export, and digital signatures. EN/DE interface." />
   <meta property="og:image" content="https://invoxme.com/og-cover.png" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Invoxi — Simple Invoice Generator (Web)" />
-  <meta name="twitter:description" content="Make and print invoices as PDF. VAT, discount, delivery, CSV, signature." />
+  <meta name="twitter:description" content="Create invoice PDFs in minutes — free, private, and fast. CSV import/export, signatures, VAT/tax. English and German available." />
   <meta name="twitter:image" content="https://invoxme.com/og-cover.png" />
 
   <!-- (AdSense removed from home page) -->
-
-  <!-- Google Search Console (optional) -->
-  <!-- <meta name="google-site-verification" content="PUT_YOUR_VERIFY_CODE_HERE" /> -->
 
   <!-- JSON-LD: Organization -->
   <script type="application/ld+json">
@@ -72,6 +65,19 @@
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
   }
   </script>
+
+  <!-- JSON-LD: FAQPage (بدون أي ذكر للغة العربية) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Does Invoxi store my invoice data?","acceptedAnswer":{"@type":"Answer","text":"No. Everything runs locally in your browser; we don't store your data on our servers."}},
+      {"@type":"Question","name":"Can I export invoices as PDF?","acceptedAnswer":{"@type":"Answer","text":"Yes. A clean, print-ready PDF is generated with one click."}},
+      {"@type":"Question","name":"Can I import items from CSV?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can bulk import items via CSV and re-export your catalog to reuse later."}}
+    ]
+  }
+  </script>
   <!-- =============== SEO end =============== -->
 
   <!-- PWA / icons -->
@@ -79,112 +85,155 @@
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="apple-touch-icon" href="icons/Icon-192.png" />
 
-  <!-- Styles -->
   <style>
-    /* Floating legal footer */
+    :root{ color-scheme: light dark; }
+    body{ margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif; }
+
+    /* ========= Floating legal footer (always visible) ========= */
     #legal-footer{
       position: fixed;
       left: 50%;
-      bottom: 14px;
+      bottom: 12px;
       transform: translateX(-50%);
-      font: 14px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font: 14px system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       background: rgba(255,255,255,.92);
-      color: #0f172a;
-      padding: 6px 10px;
-      border-radius: 10px;
-      box-shadow: 0 4px 16px rgba(0,0,0,.12);
-      z-index: 2147483647; /* فوق كل شيء */
+      color:#0f172a;
+      padding:6px 10px;
+      border-radius:10px;
+      box-shadow:0 4px 16px rgba(0,0,0,.14);
+      z-index:2147483647;
+      -webkit-backdrop-filter:saturate(140%) blur(6px);
+      backdrop-filter:saturate(140%) blur(6px);
     }
-    #legal-footer a{
-      color: inherit;
-      text-decoration: none;
-      margin: 0 .35rem;
-    }
-    #legal-footer a:hover{ text-decoration: underline; }
+    #legal-footer a{ color:inherit; text-decoration:none; margin:0 .35rem; }
+    #legal-footer a:hover{ text-decoration:underline; }
     @media (prefers-color-scheme: dark){
-      #legal-footer{ background: rgba(17,24,39,.92); color: #e5e7eb; }
-      #legal-footer a{ color: #e5e7eb; }
+      #legal-footer{ background:rgba(17,24,39,.92); color:#e5e7eb; }
+      #legal-footer a{ color:#e5e7eb; }
     }
 
-    /* Home SEO/content block */
-    .home-wrap{max-width:960px;margin:48px auto;padding:0 16px;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-    .home-hero{margin:8px 0 24px}
-    .home-hero h1{font-size:28px;margin:0 0 8px;color:#0f172a}
-    .home-hero p{color:#475569;font-size:16px}
-    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:16px 0}
-    .feature{border:1px solid #e5e7eb;border-radius:12px;padding:14px;background:#fff}
-    .feature h3{margin:0 0 6px;font-size:16px;color:#0f172a}
-    .feature p{margin:0;color:#334155;font-size:14px;line-height:1.55}
+    /* ========= Fixed SEO panel above the Start button ========= */
+    .seo-panel{
+      position: fixed;
+      left:50%;
+      bottom: 86px;
+      transform: translateX(-50%);
+      width: min(92vw, 840px);
+      background: rgba(255,255,255,.96);
+      color:#0f172a;
+      border:1px solid #e5e7eb;
+      border-radius:14px;
+      box-shadow:0 10px 36px rgba(0,0,0,.18);
+      z-index:2147483646;
+      padding:14px 16px;
+      line-height:1.55;
+      -webkit-backdrop-filter:saturate(140%) blur(6px);
+      backdrop-filter:saturate(140%) blur(6px);
+    }
+    .seo-panel h1{ font-size:18px; margin:0 0 6px; }
+    .seo-panel p{ margin:0 0 8px; color:#334155; }
+    .seo-grid{
+      display:grid;
+      grid-template-columns: repeat(2,minmax(0,1fr));
+      gap:10px;
+      margin-top:8px;
+    }
+    .seo-item{
+      border:1px solid #e5e7eb;
+      border-radius:10px;
+      padding:10px 12px;
+      background:#fff;
+    }
+    .seo-item h3{ margin:0 0 4px; font-size:14px; }
+    .seo-item p{ margin:0; font-size:13px; color:#334155; }
+    .seo-links{ margin-top:10px; font-size:13px; }
+    .seo-links a{ color:#0ea5e9; text-decoration:none; }
+    .seo-links a:hover{ text-decoration:underline; }
+
+    @media (max-width: 540px){
+      .seo-panel{ bottom: 98px; }
+      .seo-grid{ grid-template-columns: 1fr; }
+    }
     @media (prefers-color-scheme: dark){
-      .feature{background:#0b1220;border-color:#1f2937}
-      .home-hero h1,.feature h3{color:#e5e7eb}
-      .home-hero p,.feature p{color:#94a3b8}
+      .seo-panel{ background:rgba(17,24,39,.96); color:#e5e7eb; border-color:rgba(148,163,184,.28); }
+      .seo-item{ background:#0b1220; border-color:#1f2937; }
+      .seo-panel p, .seo-item p{ color:#94a3b8; }
+      .seo-links a{ color:#60a5fa; }
     }
 
-    /* bottom footer */
-    .footer-wrap{max-width:960px;margin:32px auto 24px;padding:0 16px;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif}
+    /* ======== Bottom tiny footer (static HTML for crawlers) ======== */
+    .footer-wrap{max-width:960px;margin:36px auto 24px;padding:0 16px;}
     .footer{font-size:12px;color:#6b7280;text-align:center}
     .footer a{color:#0ea5e9;text-decoration:none}
     .footer a:hover{text-decoration:underline}
     .footer hr{border:0;border-top:1px solid #e5e7eb;margin:24px 0}
     .footer nav{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    @media (prefers-color-scheme: dark){
+      .footer{color:#9aa4b2}
+      .footer a{color:#60a5fa}
+      .footer hr{border-top-color:#243042}
+    }
   </style>
-
-  <!-- Optional: small FAQ schema to enrich the page -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {"@type":"Question","name":"Does Invoxi store my invoice data?",
-       "acceptedAnswer":{"@type":"Answer","text":"No. Everything runs locally in your browser; we don't store your data on our servers."}},
-      {"@type":"Question","name":"Can I export invoices as PDF?",
-       "acceptedAnswer":{"@type":"Answer","text":"Yes. A clean, print-ready PDF is generated with one click."}},
-      {"@type":"Question","name":"Does Invoxi support Arabic / RTL?",
-       "acceptedAnswer":{"@type":"Answer","text":"Yes, the UI supports RTL and Arabic content prints RTL in the PDF."}}
-    ]
-  }
-  </script>
 </head>
 
 <body>
-  <!-- Floating legal footer (always visible above Flutter canvas) -->
+  <!-- Floating legal footer -->
   <div id="legal-footer" role="contentinfo" aria-label="Legal links">
     <a href="/privacy.html">Privacy</a> ·
     <a href="/terms.html">Terms</a> ·
-    <a href="/contact.html">Contact</a>
-    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a> ·
+    <a href="/about.html">About</a> ·
     <a href="/faq.html">FAQ</a> ·
     <a href="/how-it-works.html">How it works</a>
   </div>
 
-  <!-- Home SEO/Content block (crawlable) -->
-  <section class="home-wrap" aria-labelledby="h1">
-    <div class="home-hero">
-      <h1 id="h1">Free, privacy-friendly invoice generator for freelancers & small teams</h1>
-      <p>Create and download clean PDF invoices in minutes — no sign-up, no tracking; everything runs locally in your browser.</p>
-    </div>
-
-    <div class="features">
-      <div class="feature"><h3>Fast PDF</h3><p>One-click, print-ready PDFs that look great on paper and email.</p></div>
-      <div class="feature"><h3>Logo & branding</h3><p>Upload your logo and brand the header to keep invoices on-brand.</p></div>
-      <div class="feature"><h3>VAT/Tax, discount & delivery</h3><p>Enable VAT/Tax per item, set discounts and delivery charges — totals are automatic.</p></div>
-      <div class="feature"><h3>CSV import/export</h3><p>Bulk add line items from a CSV and re-export your catalog to reuse later.</p></div>
-      <div class="feature"><h3>Arabic / RTL</h3><p>Full right-to-left support; numbers & currency formatting follow your inputs.</p></div>
-      <div class="feature"><h3>Digital signatures</h3><p>Draw or upload a signature that will be embedded in the PDF.</p></div>
-    </div>
-
+  <!-- Fixed SEO panel (no Arabic mention; EN/DE instead) -->
+  <aside class="seo-panel" aria-label="About Invoxi">
+    <h1>Free, privacy-friendly invoice generator for freelancers & small teams</h1>
     <p>
-      New here? Read the <a href="/how-it-works.html">How it works</a>, check the <a href="/faq.html">FAQ</a>, or learn more
-      <a href="/about.html">About Invoxi</a>. Need help? <a href="/contact.html">Contact us</a>.
+      Create and download clean PDF invoices in minutes — <strong>no sign-up, no tracking</strong>.
+      Everything runs locally in your browser. Interface available in <strong>English</strong> and <strong>German</strong>.
     </p>
-  </section>
+
+    <div class="seo-grid">
+      <div class="seo-item">
+        <h3>Fast PDF</h3>
+        <p>One-click, print-ready PDF that looks great on paper and email.</p>
+      </div>
+      <div class="seo-item">
+        <h3>Logo &amp; branding</h3>
+        <p>Upload your logo and brand the header to keep invoices on-brand.</p>
+      </div>
+      <div class="seo-item">
+        <h3>VAT/Tax, discount &amp; delivery</h3>
+        <p>Enable VAT/Tax per item, set discounts and delivery charges — totals are automatic.</p>
+      </div>
+      <div class="seo-item">
+        <h3>CSV import/export</h3>
+        <p>Bulk add items from CSV and re-export your catalog to reuse later.</p>
+      </div>
+      <div class="seo-item">
+        <h3>Multi-currency &amp; locales (EN/DE)</h3>
+        <p>Numbers & currency formatting that follows your inputs; EN/DE interface.</p>
+      </div>
+      <div class="seo-item">
+        <h3>Digital signatures</h3>
+        <p>Draw or upload a signature; it will be embedded in the PDF.</p>
+      </div>
+    </div>
+
+    <div class="seo-links">
+      New here? Read <a href="/how-it-works.html">How it works</a> ·
+      check the <a href="/faq.html">FAQ</a> ·
+      or learn more <a href="/about.html">About Invoxi</a>. Need help? <a href="/contact.html">Contact us</a>.
+    </div>
+  </aside>
 
   <!-- No-JS message -->
   <noscript>
-    <div style="padding:16px; max-width:720px; margin:24px auto; font-family:system-ui, sans-serif; line-height:1.5;">
-      <h1>Invoxi — Simple Invoice Generator (Web)</h1>
-      <p>This app needs JavaScript enabled. With Invoxi you can create and print invoices as PDF, add logo, taxes, discount, delivery, import/export CSV, and sign.</p>
+    <div style="padding:16px; max-width:720px; margin:24px auto; line-height:1.55;">
+      <h2>Invoxi — Simple Invoice Generator (Web)</h2>
+      <p>This app needs JavaScript enabled. With Invoxi you can create and print invoices as PDF, add logo, VAT/tax, discount, delivery, import/export CSV, and sign.</p>
     </div>
   </noscript>
 
@@ -199,11 +248,11 @@
     });
   </script>
 
-  <!-- Bottom footer -->
-  <div class="footer-wrap">
+  <!-- Static footer (for SEO crawlers) -->
+  <div class="footer-wrap" aria-hidden="true">
     <div class="footer">
       <hr/>
-      <nav aria-label="Footer links">
+      <nav aria-label="Footer links (static)">
         <a href="/privacy.html">Privacy Policy</a>
         <span>·</span>
         <a href="/terms.html">Terms of Service</a>
