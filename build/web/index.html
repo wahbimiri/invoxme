@@ -39,8 +39,6 @@
   <meta name="twitter:description" content="Create invoice PDFs in minutes — free, private, and fast. CSV import/export, signatures, VAT/tax. English and German available." />
   <meta name="twitter:image" content="https://invoxme.com/og-cover.png" />
 
-  <!-- (AdSense removed from home page) -->
-
   <!-- JSON-LD: Organization -->
   <script type="application/ld+json">
   {
@@ -66,7 +64,7 @@
   }
   </script>
 
-  <!-- JSON-LD: FAQPage (بدون أي ذكر للغة العربية) -->
+  <!-- JSON-LD: FAQPage -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -150,15 +148,25 @@
     .seo-links a{ color:#0ea5e9; text-decoration:none; }
     .seo-links a:hover{ text-decoration:underline; }
 
-    @media (max-width: 540px){
-      .seo-panel{ bottom: 98px; }
-      .seo-grid{ grid-template-columns: 1fr; }
+    /* close button for the panel */
+    .seo-close{
+      position:absolute;
+      top:8px; right:10px;
+      border:0; background:transparent; color:#64748b;
+      font-size:18px; line-height:1; cursor:pointer; padding:2px 6px;
+      border-radius:8px;
     }
+    .seo-close:hover{ background:#e5e7eb; }
     @media (prefers-color-scheme: dark){
       .seo-panel{ background:rgba(17,24,39,.96); color:#e5e7eb; border-color:rgba(148,163,184,.28); }
       .seo-item{ background:#0b1220; border-color:#1f2937; }
       .seo-panel p, .seo-item p{ color:#94a3b8; }
       .seo-links a{ color:#60a5fa; }
+      .seo-close:hover{ background:#1f2937; }
+    }
+    @media (max-width: 540px){
+      .seo-panel{ bottom: 98px; }
+      .seo-grid{ grid-template-columns: 1fr; }
     }
 
     /* ======== Bottom tiny footer (static HTML for crawlers) ======== */
@@ -188,7 +196,8 @@
   </div>
 
   <!-- Fixed SEO panel (no Arabic mention; EN/DE instead) -->
-  <aside class="seo-panel" aria-label="About Invoxi">
+  <aside class="seo-panel" id="seoPanel" aria-label="About Invoxi">
+    <button type="button" id="seoClose" class="seo-close" aria-label="Hide info">×</button>
     <h1>Free, privacy-friendly invoice generator for freelancers & small teams</h1>
     <p>
       Create and download clean PDF invoices in minutes — <strong>no sign-up, no tracking</strong>.
@@ -238,7 +247,7 @@
   </noscript>
 
   <!-- Flutter loader -->
-  <script>const serviceWorkerVersion = "3976874526";</script>
+  <script>const serviceWorkerVersion = "3976874527";</script>
   <script src="flutter.js" defer></script>
   <script>
     window.addEventListener('load', function () {
@@ -246,6 +255,53 @@
         .then(e => e.initializeEngine())
         .then(app => app.runApp());
     });
+  </script>
+
+  <!-- Hide the SEO panel after first interaction / when editor shows -->
+  <script>
+  (function () {
+    const panel = document.getElementById('seoPanel');
+    if (!panel) return;
+
+    // لو المستخدم خبّاها قبل، ما نرجّعهاش
+    if (localStorage.getItem('seoPanelHidden') === '1') {
+      panel.remove();
+      return;
+    }
+
+    function hidePanel() {
+      try {
+        panel.remove();
+        localStorage.setItem('seoPanelHidden', '1');
+      } catch (_) {}
+    }
+
+    // زر الإغلاق
+    document.getElementById('seoClose')?.addEventListener('click', function (e) {
+      e.stopPropagation();
+      hidePanel();
+    });
+
+    // أول كليك على الصفحة (غالباً Start New Invoice)
+    const once = () => { hidePanel(); document.removeEventListener('click', once); };
+    document.addEventListener('click', once, { once: true });
+
+    // سيفتي-نت: لما تظهر شاشة الإنفويس نخفيها تلقائياً
+    const iv = setInterval(() => {
+      const t = (document.body.textContent || '').toLowerCase();
+      if (
+        t.includes('print / preview') ||
+        t.includes('download pdf') ||
+        t.includes('neue rechnung') ||
+        t.includes('rechnung') ||
+        t.includes('export csv') ||
+        t.includes('import csv')
+      ) {
+        hidePanel();
+        clearInterval(iv);
+      }
+    }, 1000);
+  })();
   </script>
 
   <!-- Static footer (for SEO crawlers) -->
