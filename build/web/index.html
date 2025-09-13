@@ -19,7 +19,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- =============== SEO begin =============== -->
+  <!-- ======= SEO ======= -->
   <title>Invoxi — Simple Invoice Generator (Web)</title>
   <meta name="description" content="Create professional invoices in minutes. Free, fast, printable PDF. No sign-up, no tracking. Optional logo, VAT/tax, discount, delivery, CSV import/export, and digital signatures. Available in English and German." />
   <link rel="canonical" href="https://invoxme.com/" />
@@ -76,7 +76,7 @@
     ]
   }
   </script>
-  <!-- =============== SEO end =============== -->
+  <!-- ==================== -->
 
   <!-- PWA / icons -->
   <link rel="manifest" href="manifest.json" />
@@ -87,99 +87,47 @@
     :root{ color-scheme: light dark; }
     body{ margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif; }
 
-    /* ========= Floating legal footer (always visible) ========= */
+    /* Landing (SEO) */
+    .wrap{max-width:1000px;margin:48px auto;padding:0 16px}
+    .hero{margin:4rem 0 1.5rem;text-align:center}
+    .hero h1{font-size:34px;margin:0 0 .5rem}
+    .hero p{color:#475569;font-size:18px;margin:0 auto;max-width:720px}
+    .cta{margin:2rem 0;text-align:center}
+    .btn{
+      display:inline-block; padding:12px 20px; border-radius:10px;
+      background:#2563eb; color:#fff; text-decoration:none; font-weight:600;
+      box-shadow:0 8px 18px rgba(37,99,235,.25);
+    }
+    .btn:hover{ filter:brightness(1.05); }
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:18px}
+    .card{border:1px solid #e5e7eb;border-radius:12px;padding:14px;background:#fff}
+    .card h3{margin:0 0 6px;font-size:16px}
+    .card p{margin:0;color:#334155;font-size:14px;line-height:1.55}
+
+    /* floating legal footer */
     #legal-footer{
-      position: fixed;
-      left: 50%;
-      bottom: 12px;
-      transform: translateX(-50%);
-      font: 14px system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background: rgba(255,255,255,.92);
-      color:#0f172a;
-      padding:6px 10px;
-      border-radius:10px;
-      box-shadow:0 4px 16px rgba(0,0,0,.14);
-      z-index:2147483647;
-      -webkit-backdrop-filter:saturate(140%) blur(6px);
-      backdrop-filter:saturate(140%) blur(6px);
+      position: fixed; left:50%; bottom:12px; transform:translateX(-50%);
+      font:14px system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:rgba(255,255,255,.92); color:#0f172a; padding:6px 10px;
+      border-radius:10px; box-shadow:0 4px 16px rgba(0,0,0,.14); z-index:9999
     }
-    #legal-footer a{ color:inherit; text-decoration:none; margin:0 .35rem; }
-    #legal-footer a:hover{ text-decoration:underline; }
-    @media (prefers-color-scheme: dark){
-      #legal-footer{ background:rgba(17,24,39,.92); color:#e5e7eb; }
-      #legal-footer a{ color:#e5e7eb; }
-    }
+    #legal-footer a{color:inherit;text-decoration:none;margin:0 .35rem}
+    #legal-footer a:hover{text-decoration:underline}
 
-    /* ========= Fixed SEO panel above the Start button ========= */
-    .seo-panel{
-      position: fixed;
-      left:50%;
-      bottom: 86px;
-      transform: translateX(-50%);
-      width: min(92vw, 840px);
-      background: rgba(255,255,255,.96);
-      color:#0f172a;
-      border:1px solid #e5e7eb;
-      border-radius:14px;
-      box-shadow:0 10px 36px rgba(0,0,0,.18);
-      z-index:2147483646;
-      padding:14px 16px;
-      line-height:1.55;
-      -webkit-backdrop-filter:saturate(140%) blur(6px);
-      backdrop-filter:saturate(140%) blur(6px);
-    }
-    .seo-panel h1{ font-size:18px; margin:0 0 6px; }
-    .seo-panel p{ margin:0 0 8px; color:#334155; }
-    .seo-grid{
-      display:grid;
-      grid-template-columns: repeat(2,minmax(0,1fr));
-      gap:10px;
-      margin-top:8px;
-    }
-    .seo-item{
-      border:1px solid #e5e7eb;
-      border-radius:10px;
-      padding:10px 12px;
-      background:#fff;
-    }
-    .seo-item h3{ margin:0 0 4px; font-size:14px; }
-    .seo-item p{ margin:0; font-size:13px; color:#334155; }
-    .seo-links{ margin-top:10px; font-size:13px; }
-    .seo-links a{ color:#0ea5e9; text-decoration:none; }
-    .seo-links a:hover{ text-decoration:underline; }
-
-    /* close button for the panel */
-    .seo-close{
-      position:absolute;
-      top:8px; right:10px;
-      border:0; background:transparent; color:#64748b;
-      font-size:18px; line-height:1; cursor:pointer; padding:2px 6px;
-      border-radius:8px;
-    }
-    .seo-close:hover{ background:#e5e7eb; }
-    @media (prefers-color-scheme: dark){
-      .seo-panel{ background:rgba(17,24,39,.96); color:#e5e7eb; border-color:rgba(148,163,184,.28); }
-      .seo-item{ background:#0b1220; border-color:#1f2937; }
-      .seo-panel p, .seo-item p{ color:#94a3b8; }
-      .seo-links a{ color:#60a5fa; }
-      .seo-close:hover{ background:#1f2937; }
-    }
-    @media (max-width: 540px){
-      .seo-panel{ bottom: 98px; }
-      .seo-grid{ grid-template-columns: 1fr; }
-    }
-
-    /* ======== Bottom tiny footer (static HTML for crawlers) ======== */
-    .footer-wrap{max-width:960px;margin:36px auto 24px;padding:0 16px;}
+    /* bottom static footer */
+    .footer-wrap{max-width:960px;margin:36px auto 24px;padding:0 16px}
     .footer{font-size:12px;color:#6b7280;text-align:center}
     .footer a{color:#0ea5e9;text-decoration:none}
     .footer a:hover{text-decoration:underline}
     .footer hr{border:0;border-top:1px solid #e5e7eb;margin:24px 0}
     .footer nav{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
     @media (prefers-color-scheme: dark){
-      .footer{color:#9aa4b2}
-      .footer a{color:#60a5fa}
-      .footer hr{border-top-color:#243042}
+      body{background:#020617;color:#e5e7eb}
+      .card{background:#0b1220;border-color:#1f2937}
+      .hero p,.card p{color:#94a3b8}
+      #legal-footer{background:rgba(17,24,39,.92);color:#e5e7eb}
+      .footer{color:#9aa4b2}.footer a{color:#60a5fa}.footer hr{border-top-color:#243042}
     }
   </style>
 </head>
@@ -195,48 +143,76 @@
     <a href="/how-it-works.html">How it works</a>
   </div>
 
-  <!-- Fixed SEO panel (no Arabic mention; EN/DE instead) -->
-  <aside class="seo-panel" id="seoPanel" aria-label="About Invoxi">
-    <button type="button" id="seoClose" class="seo-close" aria-label="Hide info">×</button>
-    <h1>Free, privacy-friendly invoice generator for freelancers & small teams</h1>
-    <p>
-      Create and download clean PDF invoices in minutes — <strong>no sign-up, no tracking</strong>.
-      Everything runs locally in your browser. Interface available in <strong>English</strong> and <strong>German</strong>.
-    </p>
+  <!-- Landing SEO page (shows by default) -->
+  <main id="landing" class="wrap" aria-label="Invoxi overview">
+    <section class="hero">
+      <h1>Free, privacy-friendly invoice generator</h1>
+      <p>Create and download clean PDF invoices in minutes — <strong>no sign-up, no tracking</strong>.
+         Everything runs locally in your browser. Interface available in <strong>English</strong> and <strong>German</strong>.</p>
+      <div class="cta">
+        <!-- renamed CTA -->
+        <a class="btn" href="?app=1#start" rel="nofollow" aria-label="Open the invoice app">Let’s build</a>
+      </div>
+    </section>
 
-    <div class="seo-grid">
-      <div class="seo-item">
-        <h3>Fast PDF</h3>
-        <p>One-click, print-ready PDF that looks great on paper and email.</p>
-      </div>
-      <div class="seo-item">
-        <h3>Logo &amp; branding</h3>
-        <p>Upload your logo and brand the header to keep invoices on-brand.</p>
-      </div>
-      <div class="seo-item">
-        <h3>VAT/Tax, discount &amp; delivery</h3>
-        <p>Enable VAT/Tax per item, set discounts and delivery charges — totals are automatic.</p>
-      </div>
-      <div class="seo-item">
-        <h3>CSV import/export</h3>
-        <p>Bulk add items from CSV and re-export your catalog to reuse later.</p>
-      </div>
-      <div class="seo-item">
-        <h3>Multi-currency &amp; locales (EN/DE)</h3>
-        <p>Numbers & currency formatting that follows your inputs; EN/DE interface.</p>
-      </div>
-      <div class="seo-item">
-        <h3>Digital signatures</h3>
-        <p>Draw or upload a signature; it will be embedded in the PDF.</p>
+    <section class="grid" aria-label="Key features">
+      <article class="card"><h3>Fast PDF</h3><p>One-click, print-ready PDF that looks great on paper and email.</p></article>
+      <article class="card"><h3>Logo & branding</h3><p>Upload your logo and brand the header to keep invoices on-brand.</p></article>
+      <article class="card"><h3>VAT/Tax, discount & delivery</h3><p>Enable VAT/Tax per item, set discounts and delivery charges — totals are automatic.</p></article>
+      <article class="card"><h3>CSV import/export</h3><p>Bulk add items from CSV and re-export your catalog to reuse later.</p></article>
+      <article class="card"><h3>Multi-currency & locales (EN/DE)</h3><p>Formatting follows your inputs; EN/DE interface.</p></article>
+      <article class="card"><h3>Digital signatures</h3><p>Draw or upload a signature; it will be embedded in the PDF.</p></article>
+    </section>
+
+    <div class="footer-wrap" aria-hidden="true">
+      <div class="footer">
+        <hr/>
+        <nav>
+          <a href="/privacy.html">Privacy Policy</a>
+          <span>·</span>
+          <a href="/terms.html">Terms of Service</a>
+          <span>·</span>
+          <a href="/contact.html">Contact</a>
+        </nav>
+        <div style="margin-top:8px">© <span id="y"></span> Invoxi</div>
       </div>
     </div>
+  </main>
 
-    <div class="seo-links">
-      New here? Read <a href="/how-it-works.html">How it works</a> ·
-      check the <a href="/faq.html">FAQ</a> ·
-      or learn more <a href="/about.html">About Invoxi</a>. Need help? <a href="/contact.html">Contact us</a>.
-    </div>
-  </aside>
+  <!-- App mode (Flutter) loads only when ?app=1 -->
+  <script>
+    (function () {
+      const params = new URLSearchParams(location.search);
+      const isApp = params.get('app') === '1' || location.hash === '#app';
+
+      if (!isApp) {
+        document.getElementById('y').textContent = new Date().getFullYear();
+        return;
+      }
+
+      // Hide landing and load the Flutter app
+      const landing = document.getElementById('landing');
+      if (landing) landing.style.display = 'none';
+
+      // define serviceWorkerVersion then load flutter.js and run app
+      const swTag = document.createElement('script');
+      swTag.text = 'const serviceWorkerVersion = "3976874529";';
+      document.head.appendChild(swTag);
+
+      const js = document.createElement('script');
+      js.src = 'flutter.js';
+      js.defer = true;
+      document.head.appendChild(js);
+
+      window.addEventListener('load', function () {
+        if (window._flutter && _flutter.loader) {
+          _flutter.loader.loadEntrypoint({ serviceWorker: { serviceWorkerVersion } })
+            .then(e => e.initializeEngine())
+            .then(app => app.runApp());
+        }
+      });
+    })();
+  </script>
 
   <!-- No-JS message -->
   <noscript>
@@ -245,79 +221,5 @@
       <p>This app needs JavaScript enabled. With Invoxi you can create and print invoices as PDF, add logo, VAT/tax, discount, delivery, import/export CSV, and sign.</p>
     </div>
   </noscript>
-
-  <!-- Flutter loader -->
-  <script>const serviceWorkerVersion = "3976874527";</script>
-  <script src="flutter.js" defer></script>
-  <script>
-    window.addEventListener('load', function () {
-      _flutter.loader.loadEntrypoint({ serviceWorker: { serviceWorkerVersion } })
-        .then(e => e.initializeEngine())
-        .then(app => app.runApp());
-    });
-  </script>
-
-  <!-- Hide the SEO panel after first interaction / when editor shows -->
-  <script>
-  (function () {
-    const panel = document.getElementById('seoPanel');
-    if (!panel) return;
-
-    // لو المستخدم خبّاها قبل، ما نرجّعهاش
-    if (localStorage.getItem('seoPanelHidden') === '1') {
-      panel.remove();
-      return;
-    }
-
-    function hidePanel() {
-      try {
-        panel.remove();
-        localStorage.setItem('seoPanelHidden', '1');
-      } catch (_) {}
-    }
-
-    // زر الإغلاق
-    document.getElementById('seoClose')?.addEventListener('click', function (e) {
-      e.stopPropagation();
-      hidePanel();
-    });
-
-    // أول كليك على الصفحة (غالباً Start New Invoice)
-    const once = () => { hidePanel(); document.removeEventListener('click', once); };
-    document.addEventListener('click', once, { once: true });
-
-    // سيفتي-نت: لما تظهر شاشة الإنفويس نخفيها تلقائياً
-    const iv = setInterval(() => {
-      const t = (document.body.textContent || '').toLowerCase();
-      if (
-        t.includes('print / preview') ||
-        t.includes('download pdf') ||
-        t.includes('neue rechnung') ||
-        t.includes('rechnung') ||
-        t.includes('export csv') ||
-        t.includes('import csv')
-      ) {
-        hidePanel();
-        clearInterval(iv);
-      }
-    }, 1000);
-  })();
-  </script>
-
-  <!-- Static footer (for SEO crawlers) -->
-  <div class="footer-wrap" aria-hidden="true">
-    <div class="footer">
-      <hr/>
-      <nav aria-label="Footer links (static)">
-        <a href="/privacy.html">Privacy Policy</a>
-        <span>·</span>
-        <a href="/terms.html">Terms of Service</a>
-        <span>·</span>
-        <a href="/contact.html">Contact</a>
-      </nav>
-      <div style="margin-top:8px">© <span id="y"></span> Invoxi</div>
-    </div>
-  </div>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
